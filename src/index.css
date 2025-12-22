@@ -14,38 +14,38 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Colors - Light Mode */
-  --background: hsl(0, 0%, 98%);
-  --background-secondary: hsl(0, 0%, 95%);
-  --background-tertiary: hsl(0, 0%, 92%);
+  /* Colors - Dark Theme (Default) */
+  --background: hsl(0, 0%, 8%);
+  --background-secondary: hsl(0, 0%, 12%);
+  --background-tertiary: hsl(0, 0%, 16%);
 
-  --text: hsl(0, 0%, 10%);
-  --text-secondary: hsl(0, 0%, 40%);
-  --text-tertiary: hsl(0, 0%, 60%);
+  --text: hsl(0, 0%, 95%);
+  --text-secondary: hsl(0, 0%, 70%);
+  --text-tertiary: hsl(0, 0%, 50%);
 
-  --primary: hsl(270, 95%, 60%);
-  --primary-hover: hsl(270, 95%, 55%);
-  --primary-light: hsl(270, 95%, 95%);
+  --primary: hsl(239, 84%, 67%);
+  --primary-hover: hsl(239, 84%, 72%);
+  --primary-light: hsl(239, 84%, 15%);
   
-  --secondary: hsl(320, 90%, 60%);
-  --secondary-hover: hsl(320, 90%, 55%);
-  --secondary-light: hsl(320, 90%, 95%);
+  --secondary: hsl(189, 94%, 63%);
+  --secondary-hover: hsl(189, 94%, 68%);
+  --secondary-light: hsl(189, 94%, 15%);
 
-  --accent: hsl(200, 95%, 60%);
-  --accent-hover: hsl(200, 95%, 55%);
-  --accent-light: hsl(200, 95%, 95%);
+  --accent: hsl(215, 25%, 37%);
+  --accent-hover: hsl(215, 25%, 42%);
+  --accent-light: hsl(215, 25%, 15%);
 
-  --border: hsl(0, 0%, 88%);
-  --border-hover: hsl(0, 0%, 75%);
+  --border: hsl(0, 0%, 20%);
+  --border-hover: hsl(0, 0%, 30%);
 
-  --error: hsl(0, 85%, 60%);
-  --error-light: hsl(0, 85%, 95%);
+  --error: hsl(0, 80%, 65%);
+  --error-light: hsl(0, 80%, 15%);
   
-  --success: hsl(140, 70%, 50%);
-  --success-light: hsl(140, 70%, 95%);
+  --success: hsl(140, 65%, 55%);
+  --success-light: hsl(140, 65%, 15%);
   
-  --warning: hsl(40, 95%, 55%);
-  --warning-light: hsl(40, 95%, 95%);
+  --warning: hsl(40, 90%, 60%);
+  --warning-light: hsl(40, 90%, 15%);
 
   /* Spacing Scale */
   --space-xs: 0.25rem;    /* 4px */
@@ -84,11 +84,11 @@
   --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
 
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -103,47 +103,6 @@
   --z-modal: 1050;
   --z-popover: 1060;
   --z-tooltip: 1070;
-}
-
-.dark {
-  --background: hsl(0, 0%, 8%);
-  --background-secondary: hsl(0, 0%, 12%);
-  --background-tertiary: hsl(0, 0%, 16%);
-
-  --text: hsl(0, 0%, 95%);
-  --text-secondary: hsl(0, 0%, 70%);
-  --text-tertiary: hsl(0, 0%, 50%);
-
-  --primary: hsl(270, 90%, 65%);
-  --primary-hover: hsl(270, 90%, 70%);
-  --primary-light: hsl(270, 90%, 15%);
-  
-  --secondary: hsl(320, 85%, 65%);
-  --secondary-hover: hsl(320, 85%, 70%);
-  --secondary-light: hsl(320, 85%, 15%);
-
-  --accent: hsl(200, 90%, 65%);
-  --accent-hover: hsl(200, 90%, 70%);
-  --accent-light: hsl(200, 90%, 15%);
-
-  --border: hsl(0, 0%, 20%);
-  --border-hover: hsl(0, 0%, 30%);
-
-  --error: hsl(0, 80%, 65%);
-  --error-light: hsl(0, 80%, 15%);
-  
-  --success: hsl(140, 65%, 55%);
-  --success-light: hsl(140, 65%, 15%);
-  
-  --warning: hsl(40, 90%, 60%);
-  --warning-light: hsl(40, 90%, 15%);
-
-  /* Shadows for dark mode */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
-  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
 }
 
 @layer base {
