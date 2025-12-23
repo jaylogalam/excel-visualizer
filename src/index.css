@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -16,46 +16,54 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --background: hsl(0, 0%, 90%);
+  --background: hsl(220, 20%, 97%);
 
-  --text : hsl(0, 0%, 5%);
-  --text-dim : hsl(0, 0%, 40%);
+  --text: hsl(220, 40%, 10%);
+  --text-dim: hsl(220, 10%, 45%);
 
-  --primary: hsl(280, 100%, 50%);
-  --primary-shade: hsl(280, 100%, 80%);
-  --primary-gradient: hsl(0, 0%, 0%, 0);
+  --primary: hsl(260, 90%, 60%);
+  --primary-shade: hsl(260, 90%, 70%);
+  --primary-gradient: linear-gradient(
+    135deg,
+    hsl(260, 90%, 60%),
+    hsl(280, 90%, 50%)
+  );
 
-  --secondary: hsl(325, 100%, 50%);
-  --secondary-shade: hsl(0, 100%, 35%);
+  --secondary: hsl(320, 90%, 60%);
+  --secondary-shade: hsl(320, 90%, 70%);
 
-  --accent : hsl(0, 0%, 85%);
-  --error : hsl(0, 80%, 50%);
-  --success : hsl(120, 80%, 40%);
+  --accent: hsl(220, 20%, 90%);
+  --error: hsl(0, 80%, 60%);
+  --success: hsl(140, 70%, 50%);
 }
 
 .dark {
-  --background: hsl(0, 0%, 90%);
+  --background: hsl(220, 40%, 5%);
 
-  --text : hsl(0, 0%, 5%);
-  --text-dim : hsl(0, 0%, 20%);
+  --text: hsl(220, 20%, 95%);
+  --text-dim: hsl(220, 10%, 65%);
 
-  --primary: hsla(0, 0%, 0%, 0);
-  --primary-shade: hsl(0, 0%, 0%, 0);
-  --primary-gradient: hsl(0, 0%, 0%, 0);
+  --primary: hsl(260, 90%, 65%);
+  --primary-shade: hsl(260, 90%, 75%);
+  --primary-gradient: linear-gradient(
+    135deg,
+    hsl(260, 90%, 65%),
+    hsl(280, 90%, 55%)
+  );
 
-  --secondary: hsla(0, 0%, 0%, 0);
-  --secondary-shade: hsl(0, 0%, 0%, 0);
+  --secondary: hsl(320, 90%, 65%);
+  --secondary-shade: hsl(320, 90%, 75%);
 
-  --accent : hsl(0, 0%, 85%);
-  --error : hsl(0, 80%, 50%);
-  --success : hsl(120, 80%, 40%);
+  --accent: hsl(220, 30%, 15%);
+  --error: hsl(0, 80%, 65%);
+  --success: hsl(140, 70%, 55%);
 }
 
 @theme inline {
   --color-background: var(--background);
 
-  --color-text : var(--text);
-  --color-text-dim : var(--text-dim);
+  --color-text: var(--text);
+  --color-text-dim: var(--text-dim);
 
   --color-primary: var(--primary);
   --color-primary-shade: var(--primary-shade);
@@ -65,8 +73,8 @@
   --color-secondary-shade: var(--secondary-shade);
 
   --color-accent: var(--accent);
-  --color-error : var(--error);
-  --color-success : var(--success);
+  --color-error: var(--error);
+  --color-success: var(--success);
 }
 
 @layer base {
@@ -77,7 +85,7 @@
 
   /* Hide scrollbar for IE, Edge and Firefox */
   * {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
