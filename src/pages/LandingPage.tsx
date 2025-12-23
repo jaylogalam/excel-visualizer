@@ -1,8 +1,23 @@
-import { ExternalLink, Cpu, Layout, Zap, ShieldCheck } from 'lucide-react'; // Optional: Install lucide-react or use SVG icons
+import { Link } from "react-router-dom";
+import { ExternalLink, Cpu, Layout, Zap, ShieldCheck } from "lucide-react";
 
 const LandingPage = () => {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 selection:bg-indigo-500/30 font-sans">
+      <nav className="container mx-auto px-6 py-6 flex justify-between items-center relative z-20">
+        <div className="flex items-center gap-2 font-bold text-xl text-white">
+          <div className="h-8 w-8 rounded-lg bg-indigo-600 flex items-center justify-center">
+            <Zap size={18} />
+          </div>
+          ExcelVisualizer
+        </div>
+        <Link
+          to="/login"
+          className="px-6 py-2 rounded-lg bg-indigo-600/10 border border-indigo-500/20 text-indigo-400 font-medium hover:bg-indigo-600 hover:text-white transition-all"
+        >
+          Sign In
+        </Link>
+      </nav>
       {/* --- HERO SECTION --- */}
       <header className="relative overflow-hidden pt-16 pb-12 lg:pt-24">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-125 bg-indigo-500/10 blur-[120px] rounded-full" />
@@ -24,20 +39,20 @@ const LandingPage = () => {
             happiness.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
+            <Link
+              to="/login"
+              className="px-8 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-semibold transition-all flex items-center gap-2"
+            >
+              Get Started <Zap size={18} />
+            </Link>
             <a
               href="https://github.com/jaylogalam/reactTS"
-              className="px-8 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-semibold transition-all flex items-center gap-2"
+              className="px-8 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-lg font-semibold transition-all flex items-center gap-2"
               target="_blank"
               rel="noopener noreferrer"
             >
-              View Docs <ExternalLink size={18} />
+              GitHub <ExternalLink size={18} />
             </a>
-            <button
-              onClick={() => window.scrollTo({ top: 800, behavior: "smooth" })}
-              className="px-8 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-lg font-semibold transition-all"
-            >
-              Browse Stack
-            </button>
           </div>
         </div>
       </header>
