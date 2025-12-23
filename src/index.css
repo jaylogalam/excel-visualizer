@@ -1,10 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -16,57 +14,95 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --background: hsl(0, 0%, 90%);
+  /* Colors - Dark Theme (Default) */
+  --background: hsl(0, 0%, 8%);
+  --background-secondary: hsl(0, 0%, 12%);
+  --background-tertiary: hsl(0, 0%, 16%);
 
-  --text : hsl(0, 0%, 5%);
-  --text-dim : hsl(0, 0%, 40%);
+  --text: hsl(0, 0%, 95%);
+  --text-secondary: hsl(0, 0%, 70%);
+  --text-tertiary: hsl(0, 0%, 50%);
 
-  --primary: hsl(280, 100%, 50%);
-  --primary-shade: hsl(280, 100%, 80%);
-  --primary-gradient: hsl(0, 0%, 0%, 0);
+  --primary: hsl(239, 84%, 67%);
+  --primary-hover: hsl(239, 84%, 72%);
+  --primary-light: hsl(239, 84%, 15%);
+  
+  --secondary: hsl(189, 94%, 63%);
+  --secondary-hover: hsl(189, 94%, 68%);
+  --secondary-light: hsl(189, 94%, 15%);
 
-  --secondary: hsl(325, 100%, 50%);
-  --secondary-shade: hsl(0, 100%, 35%);
+  --accent: hsl(215, 25%, 37%);
+  --accent-hover: hsl(215, 25%, 42%);
+  --accent-light: hsl(215, 25%, 15%);
 
-  --accent : hsl(0, 0%, 85%);
-  --error : hsl(0, 80%, 50%);
-  --success : hsl(120, 80%, 40%);
-}
+  --border: hsl(0, 0%, 20%);
+  --border-hover: hsl(0, 0%, 30%);
 
-.dark {
-  --background: hsl(0, 0%, 90%);
+  --error: hsl(0, 80%, 65%);
+  --error-light: hsl(0, 80%, 15%);
+  
+  --success: hsl(140, 65%, 55%);
+  --success-light: hsl(140, 65%, 15%);
+  
+  --warning: hsl(40, 90%, 60%);
+  --warning-light: hsl(40, 90%, 15%);
 
-  --text : hsl(0, 0%, 5%);
-  --text-dim : hsl(0, 0%, 20%);
+  /* Spacing Scale */
+  --space-xs: 0.25rem;    /* 4px */
+  --space-sm: 0.5rem;     /* 8px */
+  --space-md: 1rem;       /* 16px */
+  --space-lg: 1.5rem;     /* 24px */
+  --space-xl: 2rem;       /* 32px */
+  --space-2xl: 3rem;      /* 48px */
+  --space-3xl: 4rem;      /* 64px */
 
-  --primary: hsla(0, 0%, 0%, 0);
-  --primary-shade: hsl(0, 0%, 0%, 0);
-  --primary-gradient: hsl(0, 0%, 0%, 0);
+  /* Typography */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
 
-  --secondary: hsla(0, 0%, 0%, 0);
-  --secondary-shade: hsl(0, 0%, 0%, 0);
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
-  --accent : hsl(0, 0%, 85%);
-  --error : hsl(0, 80%, 50%);
-  --success : hsl(120, 80%, 40%);
-}
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
 
-@theme inline {
-  --color-background: var(--background);
+  /* Border Radius */
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-md: 0.5rem;    /* 8px */
+  --radius-lg: 0.75rem;   /* 12px */
+  --radius-xl: 1rem;      /* 16px */
+  --radius-2xl: 1.5rem;   /* 24px */
+  --radius-full: 9999px;
 
-  --color-text : var(--text);
-  --color-text-dim : var(--text-dim);
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
 
-  --color-primary: var(--primary);
-  --color-primary-shade: var(--primary-shade);
-  --color-primary-gradient: var(--primary-gradient);
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  --color-secondary: var(--secondary);
-  --color-secondary-shade: var(--secondary-shade);
-
-  --color-accent: var(--accent);
-  --color-error : var(--error);
-  --color-success : var(--success);
+  /* Z-index Scale */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
 }
 
 @layer base {
@@ -77,7 +113,7 @@
 
   /* Hide scrollbar for IE, Edge and Firefox */
   * {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
