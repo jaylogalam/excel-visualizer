@@ -11,6 +11,7 @@ import {
   FormContent,
   FormFooter,
 } from "./form";
+import { RedirectToSignup, RedirectToLogin } from "./redirect";
 
 export {
   SubmitButton,
@@ -24,4 +25,6 @@ export {
   FormDescription,
   FormContent,
   FormFooter,
+  RedirectToSignup,
+  RedirectToLogin,
 };

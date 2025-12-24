@@ -8,6 +8,7 @@ import {
   FormDescription,
   FormContent,
   FormFooter,
+  RedirectToSignup,
 } from "./src";
 import useLogin from "../hooks/useLogin";
 
@@ -21,36 +22,26 @@ function LoginForm() {
         <FormDescription>Please enter your details to sign in.</FormDescription>
       </FormHeader>
 
-      <FormContent>
-        <form onSubmit={submitLoginForm} className="space-y-6">
-          <InputText
-            placeholder="Enter your email"
-            error={errors.email?.message}
-            {...register("email")}
-          />
+      <FormContent onSubmit={submitLoginForm}>
+        <InputText
+          placeholder="Enter your email"
+          error={errors.email?.message}
+          {...register("email")}
+        />
 
-          <InputPassword
-            placeholder="Enter your password"
-            error={errors.password?.message}
-            {...register("password")}
-          />
+        <InputPassword
+          placeholder="Enter your password"
+          error={errors.password?.message}
+          {...register("password")}
+        />
 
-          <SubmitButton type="submit" disabled={isSubmitting}>
-            {isSubmitting ? "Signing in..." : "Sign In"}
-          </SubmitButton>
-        </form>
+        <SubmitButton type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "Signing in..." : "Sign In"}
+        </SubmitButton>
       </FormContent>
 
       <FormFooter>
-        <div className="text-sm text-muted-foreground">
-          Don't have an account?{" "}
-          <a
-            href="/signup"
-            className="text-primary font-semibold hover:underline"
-          >
-            Sign up
-          </a>
-        </div>
+        <RedirectToSignup />
       </FormFooter>
     </Form>
   );

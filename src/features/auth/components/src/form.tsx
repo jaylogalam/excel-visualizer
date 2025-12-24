@@ -59,10 +59,10 @@ const FormDescription = React.forwardRef<
 FormDescription.displayName = "FormDescription";
 
 const FormContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
+  HTMLFormElement,
+  React.HTMLAttributes<HTMLFormElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+  <form ref={ref} className={cn("p-6 pt-0 space-y-6", className)} {...props} />
 ));
 FormContent.displayName = "FormContent";
 

@@ -11,12 +11,12 @@ const SubmitButton = React.forwardRef<HTMLButtonElement, SubmitButtonProps>(
   ({ className, isLoading, children, disabled, ...props }, ref) => {
     return (
       <button
+        ref={ref}
+        disabled={isLoading || disabled}
         className={cn(
           "inline-flex bg-primary text-primary-foreground w-full px-4 py-3 border-2 border-accent items-center justify-center rounded-[120px] text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 disabled:opacity-50 disabled:pointer-events-none active:scale-[0.98] cursor-pointer",
           className
         )}
-        ref={ref}
-        disabled={isLoading || disabled}
         {...props}
       >
         {isLoading && <Loader2 className="mr-2 h-5 w-5 animate-spin" />}

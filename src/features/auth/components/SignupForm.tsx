@@ -9,6 +9,7 @@ import {
   FormDescription,
   FormContent,
   FormFooter,
+  RedirectToLogin,
 } from "./src";
 import useSignup from "../hooks/useSignup";
 import { useWatch } from "react-hook-form";
@@ -30,43 +31,33 @@ function SignupForm() {
         <FormDescription>Please enter your details to sign up.</FormDescription>
       </FormHeader>
 
-      <FormContent>
-        <form onSubmit={submitSignupForm} className="space-y-6">
-          <InputText
-            placeholder="Enter your username"
-            error={errors.username?.message}
-            {...register("username")}
-          />
+      <FormContent onSubmit={submitSignupForm}>
+        <InputText
+          placeholder="Enter your username"
+          error={errors.username?.message}
+          {...register("username")}
+        />
 
-          <InputText
-            placeholder="Enter your email"
-            error={errors.email?.message}
-            {...register("email")}
-          />
+        <InputText
+          placeholder="Enter your email"
+          error={errors.email?.message}
+          {...register("email")}
+        />
 
-          <InputPassword
-            placeholder="Enter your password"
-            error={errors.password?.message}
-            {...register("password")}
-          />
-          <PasswordRequirements password={password} />
+        <InputPassword
+          placeholder="Enter your password"
+          error={errors.password?.message}
+          {...register("password")}
+        />
+        <PasswordRequirements password={password} />
 
-          <SubmitButton type="submit" disabled={isSubmitting}>
-            {isSubmitting ? "Creating Account..." : "Create Account"}
-          </SubmitButton>
-        </form>
+        <SubmitButton type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "Creating Account..." : "Create Account"}
+        </SubmitButton>
       </FormContent>
 
       <FormFooter>
-        <div className="text-sm text-muted-foreground">
-          Already have an account?{" "}
-          <a
-            href="/login"
-            className="text-primary font-semibold hover:underline"
-          >
-            Sign in
-          </a>
-        </div>
+        <RedirectToLogin />
       </FormFooter>
     </Form>
   );
