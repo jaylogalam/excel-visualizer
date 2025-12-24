@@ -3,9 +3,14 @@ import useSignup from "../hooks/useSignup";
 import { useWatch } from "react-hook-form";
 
 function SignupForm() {
-  const { isSubmitting, errors, register, submitSignupForm } = useSignup();
+  const { isSubmitting, errors, control, register, submitSignupForm } =
+    useSignup();
 
-  useWatch;
+  const password = useWatch({
+    control,
+    name: "password",
+    defaultValue: "",
+  });
 
   return (
     <form onSubmit={submitSignupForm} className="space-y-6">
@@ -27,7 +32,7 @@ function SignupForm() {
         error={errors.password?.message}
         {...register("password")}
       />
-      <PasswordRequirements />
+      <PasswordRequirements password={password} />
 
       <Button type="submit" disabled={isSubmitting}>
         {isSubmitting ? "Creating Account..." : "Create Account"}
