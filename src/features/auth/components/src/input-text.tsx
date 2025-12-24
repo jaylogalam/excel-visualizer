@@ -1,6 +1,6 @@
 import React from "react";
 import { cn } from "@/utils/tailwindMerge";
-import { FormError } from "./form-error";
+import { InputError } from "./input-error";
 
 type InputTextProps = {
   className?: string;
@@ -21,7 +21,7 @@ const InputText = React.forwardRef<HTMLInputElement, InputTextProps>(
         )}
         {...props}
       />
-      <FormError error={error} />
+      <InputError error={error} />
     </div>
   )
 );

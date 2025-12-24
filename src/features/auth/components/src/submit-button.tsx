@@ -2,12 +2,12 @@ import { cn } from "@/utils/tailwindMerge";
 import { Loader2 } from "lucide-react";
 import React from "react";
 
-export interface ButtonProps
+export interface SubmitButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const SubmitButton = React.forwardRef<HTMLButtonElement, SubmitButtonProps>(
   ({ className, isLoading, children, disabled, ...props }, ref) => {
     return (
       <button
@@ -26,6 +26,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   }
 );
 
-Button.displayName = "Button";
+SubmitButton.displayName = "SubmitButton";
 
-export { Button };
+export { SubmitButton };

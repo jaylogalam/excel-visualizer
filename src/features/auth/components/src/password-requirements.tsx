@@ -23,11 +23,11 @@ const PasswordRequirements: React.FC<PasswordRequirementsProps> = ({
   password = "",
 }) => {
   return (
-    <div>
-      <p className="text-xs font-medium text-muted-foreground">
+    <div className="bg-accent/5 rounded-xl border border-accent/20 mt-3 p-3">
+      <p className="text-xs font-medium text-muted-foreground pb-2">
         Password must include the following:
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3 p-3 bg-accent/5 rounded-xl border border-accent/20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         {requirements.map((req, index) => {
           const isMet = req.test(password);
           return (

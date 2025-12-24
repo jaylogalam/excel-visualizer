@@ -1,4 +1,15 @@
-import { Button, InputText, InputPassword, PasswordRequirements } from "./src";
+import {
+  SubmitButton,
+  InputText,
+  InputPassword,
+  PasswordRequirements,
+  Form,
+  FormTitle,
+  FormHeader,
+  FormDescription,
+  FormContent,
+  FormFooter,
+} from "./src";
 import useSignup from "../hooks/useSignup";
 import { useWatch } from "react-hook-form";
 
@@ -13,38 +24,51 @@ function SignupForm() {
   });
 
   return (
-    <div>
-      <form onSubmit={submitSignupForm} className="space-y-6">
-        <InputText
-          placeholder="Enter your username"
-          error={errors.username?.message}
-          {...register("username")}
-        />
+    <Form>
+      <FormHeader>
+        <FormTitle>Create an Account</FormTitle>
+        <FormDescription>Please enter your details to sign up.</FormDescription>
+      </FormHeader>
 
-        <InputText
-          placeholder="Enter your email"
-          error={errors.email?.message}
-          {...register("email")}
-        />
+      <FormContent>
+        <form onSubmit={submitSignupForm} className="space-y-6">
+          <InputText
+            placeholder="Enter your username"
+            error={errors.username?.message}
+            {...register("username")}
+          />
 
-        <InputPassword
-          placeholder="Enter your password"
-          error={errors.password?.message}
-          {...register("password")}
-        />
-        <PasswordRequirements password={password} />
+          <InputText
+            placeholder="Enter your email"
+            error={errors.email?.message}
+            {...register("email")}
+          />
 
-        <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Creating Account..." : "Create Account"}
-        </Button>
-      </form>
-      <div className="mt-6 text-center text-sm text-muted-foreground">
-        Already have an account?{" "}
-        <a href="/login" className="text-primary font-semibold hover:underline">
-          Sign in
-        </a>
-      </div>
-    </div>
+          <InputPassword
+            placeholder="Enter your password"
+            error={errors.password?.message}
+            {...register("password")}
+          />
+          <PasswordRequirements password={password} />
+
+          <SubmitButton type="submit" disabled={isSubmitting}>
+            {isSubmitting ? "Creating Account..." : "Create Account"}
+          </SubmitButton>
+        </form>
+      </FormContent>
+
+      <FormFooter>
+        <div className="text-sm text-muted-foreground">
+          Already have an account?{" "}
+          <a
+            href="/login"
+            className="text-primary font-semibold hover:underline"
+          >
+            Sign in
+          </a>
+        </div>
+      </FormFooter>
+    </Form>
   );
 }
 

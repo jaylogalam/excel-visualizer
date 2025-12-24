@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { cn } from "@/utils/tailwindMerge";
-import { FormError } from "./form-error";
+import { InputError } from "./input-error";
 
 type InputPasswordProps = {
   className?: string;
@@ -37,7 +37,7 @@ const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordProps>(
             {showPassword ? <Eye size={22} /> : <EyeOff size={22} />}
           </button>
         </div>
-        <FormError error={error} />
+        <InputError error={error} />
       </div>
     );
   }
