@@ -25,7 +25,9 @@ export default function useSignup() {
     onSuccess: async () => {
       navigate("/");
     },
-    onError: (err: any) => {},
+    onError: (err: any) => {
+      console.log(err);
+    },
   });
 
   const submitSignupForm = handleSubmit((data) => {
