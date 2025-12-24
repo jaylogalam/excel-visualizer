@@ -21,15 +21,6 @@ const LoginPage = () => {
 
         <CardContent>
           <LoginForm />
-          <div className="mt-6 text-center text-sm text-muted-foreground">
-            Don't have an account?{" "}
-            <a
-              href="/signup"
-              className="text-primary font-semibold hover:underline"
-            >
-              Sign up for free
-            </a>
-          </div>
         </CardContent>
       </Card>
     </Page>

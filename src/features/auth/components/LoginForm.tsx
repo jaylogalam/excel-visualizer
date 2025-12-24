@@ -5,24 +5,34 @@ function LoginForm() {
   const { isSubmitting, errors, register, submitLoginForm } = useLogin();
 
   return (
-    <form onSubmit={submitLoginForm} className="space-y-6">
-      <InputText
-        type="email"
-        placeholder="Enter your email"
-        error={errors.email?.message}
-        {...register("email")}
-      />
+    <div>
+      <form onSubmit={submitLoginForm} className="space-y-6">
+        <InputText
+          placeholder="Enter your email"
+          error={errors.email?.message}
+          {...register("email")}
+        />
 
-      <InputPassword
-        placeholder="Enter your password"
-        error={errors.password?.message}
-        {...register("password")}
-      />
+        <InputPassword
+          placeholder="Enter your password"
+          error={errors.password?.message}
+          {...register("password")}
+        />
 
-      <Button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? "Signing in..." : "Sign In"}
-      </Button>
-    </form>
+        <Button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "Signing in..." : "Sign In"}
+        </Button>
+      </form>
+      <div className="mt-6 text-center text-sm text-muted-foreground">
+        Don't have an account?{" "}
+        <a
+          href="/signup"
+          className="text-primary font-semibold hover:underline"
+        >
+          Sign up
+        </a>
+      </div>
+    </div>
   );
 }
 

@@ -13,30 +13,38 @@ function SignupForm() {
   });
 
   return (
-    <form onSubmit={submitSignupForm} className="space-y-6">
-      <InputText
-        placeholder="Enter your username"
-        error={errors.username?.message}
-        {...register("username")}
-      />
+    <div>
+      <form onSubmit={submitSignupForm} className="space-y-6">
+        <InputText
+          placeholder="Enter your username"
+          error={errors.username?.message}
+          {...register("username")}
+        />
 
-      <InputText
-        placeholder="Enter your email"
-        error={errors.email?.message}
-        {...register("email")}
-      />
+        <InputText
+          placeholder="Enter your email"
+          error={errors.email?.message}
+          {...register("email")}
+        />
 
-      <InputPassword
-        placeholder="Enter your password"
-        error={errors.password?.message}
-        {...register("password")}
-      />
-      <PasswordRequirements password={password} />
+        <InputPassword
+          placeholder="Enter your password"
+          error={errors.password?.message}
+          {...register("password")}
+        />
+        <PasswordRequirements password={password} />
 
-      <Button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? "Creating Account..." : "Create Account"}
-      </Button>
-    </form>
+        <Button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "Creating Account..." : "Create Account"}
+        </Button>
+      </form>
+      <div className="mt-6 text-center text-sm text-muted-foreground">
+        Already have an account?{" "}
+        <a href="/login" className="text-primary font-semibold hover:underline">
+          Sign in
+        </a>
+      </div>
+    </div>
   );
 }
 

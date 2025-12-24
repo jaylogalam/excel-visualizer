@@ -21,15 +21,6 @@ const SignupPage = () => {
 
         <CardContent>
           <SignupForm />
-          <div className="mt-6 text-center text-sm text-muted-foreground">
-            Already have an account?{" "}
-            <a
-              href="/login"
-              className="text-primary font-semibold hover:underline"
-            >
-              Sign in
-            </a>
-          </div>
         </CardContent>
       </Card>
     </Page>
