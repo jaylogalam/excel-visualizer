@@ -14,7 +14,9 @@ const InputText = React.forwardRef<HTMLInputElement, InputTextProps>(
         ref={ref}
         type="text"
         className={cn(
-          `w-full px-4 py-3 border-2 border-accent rounded-[120px] focus:outline-none focus:border-primary transition-colors text-text`,
+          "w-full px-4 py-3 border-2",
+          "border-input rounded-[120px] bg-transparent",
+          "focus:outline-none focus:border-primary transition-colors",
           className
         )}
         {...props}

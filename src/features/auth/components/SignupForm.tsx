@@ -21,7 +21,6 @@ function SignupForm() {
       />
 
       <InputText
-        type="email"
         placeholder="Enter your email"
         error={errors.email?.message}
         {...register("email")}

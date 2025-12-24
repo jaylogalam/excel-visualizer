@@ -31,7 +31,7 @@ const PasswordRequirements: React.FC<PasswordRequirementsProps> = ({
             key={index}
             className={cn(
               "flex items-center gap-2 text-xs transition-all duration-300",
-              isMet ? "text-success" : "text-text-dim"
+              isMet ? "text-primary" : "text-muted-foreground"
             )}
           >
             {isMet ? (

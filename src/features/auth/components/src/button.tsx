@@ -12,7 +12,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         className={cn(
-          "inline-flex bg-primary w-full px-4 py-3 border-2 border-accent items-center justify-center rounded-[120px] text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 disabled:opacity-50 disabled:pointer-events-none active:scale-[0.98] cursor-pointer",
+          "inline-flex bg-primary text-primary-foreground w-full px-4 py-3 border-2 border-accent items-center justify-center rounded-[120px] text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 disabled:opacity-50 disabled:pointer-events-none active:scale-[0.98] cursor-pointer",
           className
         )}
         ref={ref}
