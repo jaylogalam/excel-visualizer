@@ -7,8 +7,8 @@ const cardVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-white/5 border-accent shadow-xl backdrop-blur-sm",
-        outlined: "bg-transparent border-accent",
+        default: "bg-card border-border shadow-xl backdrop-blur-sm",
+        outlined: "bg-transparent border-border",
         ghost: "bg-transparent border-transparent shadow-none",
         glass: "bg-background/40 border-primary/20 backdrop-blur-md shadow-2xl",
       },
@@ -60,7 +60,7 @@ const CardTitle = React.forwardRef<
   <h3
     ref={ref}
     className={cn(
-      "text-2xl font-semibold leading-none tracking-tight text-text",
+      "text-2xl font-semibold leading-none tracking-tight text-card-foreground",
       className
     )}
     {...props}
@@ -72,7 +72,11 @@ const CardDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <p ref={ref} className={cn("text-sm text-text-dim", className)} {...props} />
+  <p
+    ref={ref}
+    className={cn("text-sm text-muted-foreground", className)}
+    {...props}
+  />
 ));
 CardDescription.displayName = "CardDescription";
 

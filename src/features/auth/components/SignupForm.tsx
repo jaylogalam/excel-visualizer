@@ -1,38 +1,65 @@
-import { Button, InputText, InputPassword, PasswordRequirements } from "./src";
+import {
+  SubmitButton,
+  InputText,
+  InputPassword,
+  PasswordRequirements,
+  Form,
+  FormTitle,
+  FormHeader,
+  FormDescription,
+  FormContent,
+  FormFooter,
+  RedirectToLogin,
+} from "./src";
 import useSignup from "../hooks/useSignup";
 import { useWatch } from "react-hook-form";
 
 function SignupForm() {
-  const { isSubmitting, errors, register, submitSignupForm } = useSignup();
+  const { isSubmitting, errors, control, register, submitSignupForm } =
+    useSignup();
 
-  useWatch;
+  const password = useWatch({
+    control,
+    name: "password",
+    defaultValue: "",
+  });
 
   return (
-    <form onSubmit={submitSignupForm} className="space-y-6">
-      <InputText
-        placeholder="Enter your username"
-        error={errors.username?.message}
-        {...register("username")}
-      />
+    <Form>
+      <FormHeader>
+        <FormTitle>Create an Account</FormTitle>
+        <FormDescription>Please enter your details to sign up.</FormDescription>
+      </FormHeader>
 
-      <InputText
-        type="email"
-        placeholder="Enter your email"
-        error={errors.email?.message}
-        {...register("email")}
-      />
+      <FormContent onSubmit={submitSignupForm}>
+        <InputText
+          placeholder="Enter your username"
+          error={errors.username?.message}
+          {...register("username")}
+        />
 
-      <InputPassword
-        placeholder="Enter your password"
-        error={errors.password?.message}
-        {...register("password")}
-      />
-      <PasswordRequirements />
+        <InputText
+          placeholder="Enter your email"
+          error={errors.email?.message}
+          {...register("email")}
+        />
 
-      <Button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? "Creating Account..." : "Create Account"}
-      </Button>
-    </form>
+        <InputPassword
+          placeholder="Enter your password"
+          error={errors.password?.message}
+          {...register("password")}
+        />
+        <PasswordRequirements password={password} />
+
+        <SubmitButton type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "Creating Account..." : "Create Account"}
+        </SubmitButton>
+      </FormContent>
+
+      <FormFooter>
+        <RedirectToLogin />
+      </FormFooter>
+    </Form>
   );
 }
 

@@ -2,14 +2,14 @@ import * as React from "react";
 import { AlertCircle } from "lucide-react";
 import { cn } from "@/utils/tailwindMerge";
 
-interface FormErrorProps {
+interface InputErrorProps {
   className?: string;
   error?: string;
   children?: React.ReactNode;
   showIcon?: boolean;
 }
 
-const FormError = React.forwardRef<HTMLDivElement, FormErrorProps>(
+const InputError = React.forwardRef<HTMLDivElement, InputErrorProps>(
   ({ className, error, children, showIcon = true, ...props }, ref) => {
     // Don't render anything if there's no error
     if (!error && !children) return null;
@@ -41,6 +41,6 @@ const FormError = React.forwardRef<HTMLDivElement, FormErrorProps>(
   }
 );
 
-FormError.displayName = "FormError";
+InputError.displayName = "InputError";
 
-export { FormError };
+export { InputError };

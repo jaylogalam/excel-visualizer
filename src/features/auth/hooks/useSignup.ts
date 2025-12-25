@@ -5,13 +5,16 @@ import { fetchSignup } from "../api/authApi";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signupSchema, type SignupSchema } from "../schemas/auth.schema";
+import { useAuthStore } from "../store/authStore";
 
 export default function useSignup() {
   const navigate = useNavigate();
-
+  const setUser = useAuthStore((state) => state.setUser);
   const {
     register,
     handleSubmit,
+    setError,
+    control,
     formState: { errors, isSubmitting },
   } = useForm<SignupSchema>({
     resolver: zodResolver(signupSchema),
@@ -21,10 +24,17 @@ export default function useSignup() {
 
   const { mutate: signup } = useMutation({
     mutationFn: fetchSignup,
-    onSuccess: async () => {
+    onSuccess: async (data) => {
+      setUser(data.user);
       navigate("/");
     },
-    onError: (err: any) => {},
+    onError: (error: any) => {
+      console.log(error.message);
+      if (error.message.includes("Email"))
+        setError("email", { message: error.message });
+      if (error.message.includes("Username"))
+        setError("username", { message: error.message });
+    },
   });
 
   const submitSignupForm = handleSubmit((data) => {
@@ -34,6 +44,7 @@ export default function useSignup() {
   return {
     isSubmitting,
     errors,
+    control,
     register,
     submitSignupForm,
   };

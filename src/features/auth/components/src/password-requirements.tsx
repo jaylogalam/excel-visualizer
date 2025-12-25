@@ -23,26 +23,31 @@ const PasswordRequirements: React.FC<PasswordRequirementsProps> = ({
   password = "",
 }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3 p-3 bg-accent/5 rounded-xl border border-accent/20">
-      {requirements.map((req, index) => {
-        const isMet = req.test(password);
-        return (
-          <div
-            key={index}
-            className={cn(
-              "flex items-center gap-2 text-xs transition-all duration-300",
-              isMet ? "text-success" : "text-text-dim"
-            )}
-          >
-            {isMet ? (
-              <Check className="w-3.5 h-3.5" strokeWidth={3} />
-            ) : (
-              <Circle className="w-3.5 h-3.5 opacity-40" />
-            )}
-            <span>{req.label}</span>
-          </div>
-        );
-      })}
+    <div className="bg-accent/5 rounded-xl border border-accent/20 mt-3 p-3">
+      <p className="text-xs font-medium text-muted-foreground pb-2">
+        Password must include the following:
+      </p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        {requirements.map((req, index) => {
+          const isMet = req.test(password);
+          return (
+            <div
+              key={index}
+              className={cn(
+                "flex items-center gap-2 text-xs transition-all duration-300",
+                isMet ? "text-primary" : "text-muted-foreground"
+              )}
+            >
+              {isMet ? (
+                <Check className="w-3.5 h-3.5" strokeWidth={3} />
+              ) : (
+                <Circle className="w-3.5 h-3.5 opacity-40" />
+              )}
+              <span>{req.label}</span>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
