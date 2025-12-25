@@ -12,9 +12,7 @@ export default function useLogout() {
       clearUser();
       navigate("/");
     },
-    onError: (error: Error) => {
-      console.error("Logout failed:", error);
-    },
+    onError: (error: Error) => {},
   });
 
   return logout;

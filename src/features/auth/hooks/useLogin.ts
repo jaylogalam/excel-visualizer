@@ -28,7 +28,6 @@ export default function useLogin() {
       navigate("/");
     },
     onError: (error: Error) => {
-      console.log(error.message);
       setError("password", { message: error.message });
     },
   });

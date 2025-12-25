@@ -29,8 +29,7 @@ export default function useSignup() {
       navigate("/");
     },
     onError: (error: any) => {
-      console.log(error.message);
-      if (error.message.includes("Email"))
+      if (error.message.includes("email"))
         setError("email", { message: error.message });
       if (error.message.includes("Username"))
         setError("username", { message: error.message });
