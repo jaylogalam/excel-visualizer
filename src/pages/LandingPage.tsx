@@ -12,7 +12,15 @@ const LandingPage = () => {
           </div>
           ExcelVisualizer
         </div>
-        <ProfileIcon />
+        <div className="flex items-center gap-6">
+          <Link
+            to="/pricing"
+            className="text-foreground hover:text-primary transition-colors font-medium"
+          >
+            Pricing
+          </Link>
+          <ProfileIcon />
+        </div>
       </nav>
       {/* --- HERO SECTION --- */}
       <header className="relative overflow-hidden pt-16 pb-12 lg:pt-24">

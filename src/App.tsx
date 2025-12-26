@@ -5,12 +5,14 @@ import LoginPage from "@pages/LoginPage";
 import SignupPage from "@pages/SignupPage";
 import PaymentPage from "@pages/PaymentPage";
 import CompletionPage from "@pages/CompletionPage";
+import PricingPage from "@pages/PricingPage";
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/pricing" element={<PricingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/payment" element={<PaymentPage />} />
