@@ -1,15 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
-import { fetchSignup } from "../api/authApi";
+import { signUp } from "../services";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signupSchema, type SignupSchema } from "../schemas/auth.schema";
-import { useAuthStore } from "../store/authStore";
 
 export default function useSignup() {
   const navigate = useNavigate();
-  const setUser = useAuthStore((state) => state.setUser);
+
   const {
     register,
     handleSubmit,
@@ -23,16 +22,15 @@ export default function useSignup() {
   });
 
   const { mutate: signup } = useMutation({
-    mutationFn: fetchSignup,
-    onSuccess: async (data) => {
-      setUser(data.user);
-      navigate("/");
-    },
+    mutationFn: async (data: SignupSchema) => await signUp(data),
+    onSuccess: () => navigate("/"),
     onError: (error: any) => {
       if (error.message.includes("email"))
         setError("email", { message: error.message });
-      if (error.message.includes("Username"))
-        setError("username", { message: error.message });
+      if (error.message.includes("first name"))
+        setError("firstName", { message: error.message });
+      if (error.message.includes("last name"))
+        setError("firstName", { message: error.message });
     },
   });
 

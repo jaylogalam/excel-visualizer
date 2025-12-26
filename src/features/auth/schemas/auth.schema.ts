@@ -1,15 +1,23 @@
 import { z } from "zod";
 
 export const signupSchema = z.object({
-  username: z
+  firstName: z
     .string()
-    .min(5, "Username must be at least 5 characters long")
-    .max(16, "Username must be at most 16 characters long")
+    .nonempty("First name cannot be blank")
+    .max(16, "First name cannot exceed 16 characters")
     .regex(
-      /^[a-zA-Z0-9_]+$/,
-      "Username can only contain letters, numbers, and underscores"
+      /^[a-zA-Z\s'-]+$/,
+      "First name can only contain letters, spaces, hyphens, and apostrophes"
     ),
-  email: z.email("Invalid email address"),
+  lastName: z
+    .string()
+    .nonempty("Last name cannot be blank")
+    .max(16, "Last name cannot exceed 16 characters")
+    .regex(
+      /^[a-zA-Z\s'-]+$/,
+      "Last name can only contain letters, spaces, hyphens, and apostrophes"
+    ),
+  email: z.string().email("Invalid email address"),
   password: z
     .string()
     .min(8, "Invalid password")
