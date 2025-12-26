@@ -1,11 +1,8 @@
 import { Link } from "react-router-dom";
 import { ExternalLink, Cpu, Layout, Zap, ShieldCheck } from "lucide-react";
-import LogoutButton from "@/features/auth/components/LogoutButton";
-import { useAuthStore } from "@/features/auth/store/authStore";
+import ProfileIcon from "@/features/auth/components/ProfileIcon";
 
 const LandingPage = () => {
-  const isLoggedIn = useAuthStore((state) => state.isAuthenticated);
-
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 font-sans">
       <nav className="container mx-auto px-6 py-6 flex justify-between items-center relative z-20">
@@ -15,16 +12,7 @@ const LandingPage = () => {
           </div>
           ExcelVisualizer
         </div>
-        {isLoggedIn ? (
-          <LogoutButton />
-        ) : (
-          <Link
-            to="/login"
-            className="px-6 py-2 rounded-lg bg-secondary border border-secondary text-secondary-foreground font-medium hover:bg-secondary/80 hover:text-white transition-all"
-          >
-            Sign In
-          </Link>
-        )}
+        <ProfileIcon />
       </nav>
       {/* --- HERO SECTION --- */}
       <header className="relative overflow-hidden pt-16 pb-12 lg:pt-24">

@@ -10,6 +10,7 @@ import {
   FormContent,
   FormFooter,
   RedirectToLogin,
+  InputError,
 } from "./src";
 import useSignup from "../hooks/useSignup";
 import { useWatch } from "react-hook-form";
@@ -32,11 +33,20 @@ function SignupForm() {
       </FormHeader>
 
       <FormContent onSubmit={submitSignupForm}>
-        <InputText
-          placeholder="Enter your username"
-          error={errors.username?.message}
-          {...register("username")}
-        />
+        <div className="space-y-1">
+          <div className="flex gap-4">
+            <InputText placeholder="First Name" {...register("firstName")} />
+
+            <InputText placeholder="Last Name" {...register("lastName")} />
+          </div>
+
+          {/* Single error for both name fields */}
+          {(errors.firstName || errors.lastName) && (
+            <InputError
+              error={errors.firstName?.message || errors.lastName?.message}
+            />
+          )}
+        </div>
 
         <InputText
           placeholder="Enter your email"
